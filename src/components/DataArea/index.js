@@ -27,14 +27,15 @@ const DataArea = () => {
             })
         }
     
-        const compareName = (a, b) => {
+  
+        const sortName = (a, b) => {
           if (dataState.order === "ascend") {
             if (a[heading] === undefined) {
               return 1;
             } else if (b[heading] === undefined) {
               return -1;
             } else if (heading === "name") {
-              return a[heading].first.compareName(b[heading].first);
+              return a[heading].first.localeCompare(b[heading].first);
             } else {
               return b[heading] - a[heading];
             } 
@@ -44,7 +45,7 @@ const DataArea = () => {
         } else if (b[heading] === undefined){
             return -1;
         } else if (heading ==="name"){
-            return b[heading].first.compareName(a[heading].first);
+            return b[heading].first.localeCompare(a[heading].first);
         } else {
 return b[heading]-  a[heading];
         }
@@ -53,6 +54,14 @@ return b[heading]-  a[heading];
 
  };
    
+
+// const sortedUsers = dataState.filteredUsers.sort(sortName);
+
+//         setDataState({
+//           ...dataState,
+//           filteredUsers: sortedUsers
+//     });
+
       const handleSearchChange = event => {
         const filter = event.target.value;
         const filteredList = dataState.users.filter(item => {
@@ -81,7 +90,7 @@ return b[heading]-  a[heading];
         >
           <Nav />
           <div className="data-area">
-            {dataState.filteredUsers.length > 0 
+            {dataState.filteredUsers.length > 0
     ? <DataTable />
      : <div></div>
      }

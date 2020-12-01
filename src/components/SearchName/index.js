@@ -14,9 +14,7 @@ const SearchName = () => {
                     aria-label="Search"
                     onChange={e => context.handleSearchChange(e)}
                 />
-                <button className="btn" type="submit">
-                    Find Employee
-                 </button>
+                
             </form>
         </div>
     );
