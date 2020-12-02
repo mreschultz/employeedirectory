@@ -10,7 +10,7 @@ const DataTable = () => {
         <div className="datatable">
             <table
                 id="table"
-                className="table table-striped table-hover table-condensed"
+                className="table"
             >
                 <thead>
                     <tr>

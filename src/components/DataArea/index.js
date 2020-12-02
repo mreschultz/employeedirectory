@@ -10,9 +10,9 @@ const DataArea = () => {
         order: "ascend",
         filteredUsers: [],
         headings: [
-          { name: "Name", width: "33%", },
-          { name: "Phone", width: "33%", },
-          { name: "Email", width: "33%", },
+          { name: "Name", width: "45px", },
+          { name: "Phone", width: "45px", },
+          { name: "Email", width: "45px", },
         ]
       });
     
@@ -28,14 +28,16 @@ const DataArea = () => {
         }
     
   
-        const sortName = (a, b) => {
+  
+    // eslint-disable-next-line no-unused-vars
+        const searchName = (a, b) => {
           if (dataState.order === "ascend") {
             if (a[heading] === undefined) {
               return 1;
             } else if (b[heading] === undefined) {
               return -1;
             } else if (heading === "name") {
-              return a[heading].first.localeCompare(b[heading].first);
+              return a[heading].first.nameCompare(b[heading].first);
             } else {
               return b[heading] - a[heading];
             } 
@@ -45,7 +47,7 @@ const DataArea = () => {
         } else if (b[heading] === undefined){
             return -1;
         } else if (heading ==="name"){
-            return b[heading].first.localeCompare(a[heading].first);
+            return b[heading].first.nameCompare(a[heading].first);
         } else {
 return b[heading]-  a[heading];
         }
@@ -55,7 +57,8 @@ return b[heading]-  a[heading];
  };
    
 
-// const sortedUsers = dataState.filteredUsers.sort(sortName);
+// eslint-disable-next-line no-undef
+// const sortedUsers = dataState.filteredUsers.sort(searchName);
 
 //         setDataState({
 //           ...dataState,
