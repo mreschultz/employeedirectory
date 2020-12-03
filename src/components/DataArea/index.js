@@ -16,7 +16,7 @@ const DataArea = () => {
         ]
       });
     
-      const handleSort = heading => {
+      const Sort = heading => {
         if (dataState.order === "descend") {
             setDataState({
                 order:"ascend"
@@ -27,17 +27,14 @@ const DataArea = () => {
             })
         }
     
-  
-  
-    // eslint-disable-next-line no-unused-vars
-        const searchName = (a, b) => {
+        const sortName = (a, b) => {
           if (dataState.order === "ascend") {
             if (a[heading] === undefined) {
               return 1;
             } else if (b[heading] === undefined) {
               return -1;
             } else if (heading === "name") {
-              return a[heading].first.nameCompare(b[heading].first);
+              return a[heading].first.localeCompare(b[heading].first);
             } else {
               return b[heading] - a[heading];
             } 
@@ -47,23 +44,21 @@ const DataArea = () => {
         } else if (b[heading] === undefined){
             return -1;
         } else if (heading ==="name"){
-            return b[heading].first.nameCompare(a[heading].first);
+            return b[heading].first.localeCompare(a[heading].first);
         } else {
 return b[heading]-  a[heading];
         }
     }
     }
-
- };
    
+const sortedUsers = dataState.filteredUsers.sort(sortName);
 
-// eslint-disable-next-line no-undef
-// const sortedUsers = dataState.filteredUsers.sort(searchName);
+        setDataState({
+          ...dataState,
+          filteredUsers: sortedUsers
+    });
 
-//         setDataState({
-//           ...dataState,
-//           filteredUsers: sortedUsers
-//     });
+};
 
       const handleSearchChange = event => {
         const filter = event.target.value;
@@ -89,11 +84,11 @@ return b[heading]-  a[heading];
     
       return (
         <DataAreaContext.Provider
-          value={{ dataState, handleSearchChange, handleSort }}
+          value={{ dataState, handleSearchChange, Sort }}
         >
           <Nav />
           <div className="data-area">
-            {dataState.filteredUsers.length > 0
+            {dataState.filteredUsers.length + 0
     ? <DataTable />
      : <div></div>
      }
@@ -101,5 +96,5 @@ return b[heading]-  a[heading];
         </DataAreaContext.Provider>
       );
     }
-    
+
     export default DataArea;

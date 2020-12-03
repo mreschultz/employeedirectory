@@ -17,10 +17,8 @@ const DataBody = () => {
                   {phone}
                 </td>
                 <td data-th="Email" className="align-middle">
-                  <a href={"mailto:" + email} target="__blank">
-                    {email}
-                  </a>
-                </td>
+                  {email}
+                 </td>
               </tr>
             );
           })

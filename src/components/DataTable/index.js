@@ -21,7 +21,7 @@ const DataTable = () => {
                                     key={name}
                                     style={{ width }}
                                     onClick={() => {
-                                        context.handleSort(name.toLowerCase());
+                                        context.Sort(name.toLowerCase());
                                     }}
                                 >
                                     {name}

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is an employee directory with React. The application's UI is broken into components, management of component states, and response to user events.
+This is an employee directory with React. The application's UI is broken into components, management of component states and response to user events.
 
 ## User Story
 
