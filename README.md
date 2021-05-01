@@ -25,4 +25,4 @@ The user can:
 * Open http://localhost:3000 to view it in the browser.
 
 ## Link
-* This app is deployed on Heroku.
+* https://still-woodland-27348.herokuapp.com
